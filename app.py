@@ -16,7 +16,7 @@ app.layout = html.Div([
     html.Div([
         dcc.RadioItems(
             id='region-selector',
-            options=['north','south','all','west'],
+            options=['north','south','all','west','east'],
             value='all',
             inline=True
         )
@@ -41,9 +41,20 @@ def update_graph(selected_region):
         filtered_df,
         x='date',
         y='sales',
-        title=f'Sales Over Time - {selected_region.capitalize()} Region')
+        color='region',
+        markers=True,
+        title=f'Sales Over Time - {selected_region.capitalize()} Region',
+        template='simple_white')
 
+    fig.update_layout(
+        plot_bgcolor='#A0A0A0',
+        paper_bgcolor='#A0A0A0',
+        font_family='Frutiger',
+        title_font_family='Frutiger',
+        title_font_size= 20,
+        title_x=0.5
 
+    )
     return fig
 
 if __name__ == '__main__':
