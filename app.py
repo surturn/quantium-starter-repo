@@ -12,7 +12,7 @@ df = pd.read_csv('formatted_data.csv')
 df = df.sort_values(by='date')
 
 app.layout = html.Div([
-    html.H1("Sales of Pink Morsel Over Time",style={'textAlign':'center'}),
+    html.H1("Sales of Pink Morsel Over Time",id='header',style={'textAlign':'center'}),
     html.Div([
         dcc.RadioItems(
             id='region-selector',
